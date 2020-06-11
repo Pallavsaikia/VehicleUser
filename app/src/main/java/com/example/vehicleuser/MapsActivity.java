@@ -1,9 +1,14 @@
 package com.example.vehicleuser;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.ColorInt;
 import androidx.core.content.ContextCompat;
@@ -24,6 +29,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
+    BroadcastReceiver broadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } catch (Exception e) {
 
         }
+        broadcastReceiver  = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String lat = intent.getStringExtra("latitude");
+                String lng = intent.getStringExtra("longitude");
+
+                LatLng latlng = new LatLng(Double.parseDouble(lat),Double.parseDouble( lng));
+                setLocation(latlng);
+            }
+        };
+        registerReceiver(broadcastReceiver, new IntentFilter("location.intent"));
 
     }
 
@@ -47,8 +64,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         googleMap = mGoogleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         googleMap.getUiSettings().setZoomControlsEnabled(true);
-        LatLng latlng = new LatLng(26.1082722, 91.8039931);
-        setLocation(latlng);
+//        LatLng latlng = new LatLng(26.1082722, 91.8039931);
+//        setLocation(latlng);
     }
 
     private void setLocation(LatLng latlng) {
