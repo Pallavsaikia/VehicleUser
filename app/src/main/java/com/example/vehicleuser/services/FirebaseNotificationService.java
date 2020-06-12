@@ -11,6 +11,8 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;
 
+import utils.GlobalPref;
+
 public class FirebaseNotificationService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
@@ -24,6 +26,7 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
     @Override
     public void onNewToken(String token) {
         Log.d("MyNS", "Refreshed token: " + token);
+        new GlobalPref(getApplicationContext()).setToken(token);
 
     }
 

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">VehicleUser</string>
     <string name="title_activity_maps">Map</string>
+    <string name="user">User</string>
+    <string name="token">Token</string>
+    <string name="show_qr">show qr</string>
+    <string name="or">OR</string>
+    <string name="settings">Settings</string>
+    <string name="goto_map">Goto Map</string>
 </resources>
