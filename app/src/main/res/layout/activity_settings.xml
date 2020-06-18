@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
     android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:context=".activities.SettingsActivity">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_height="wrap_content"
+        android:src="@drawable/user_setting_bg"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/screenMarginDefault"
+        android:paddingTop="@dimen/screenMarginDefault"
+        android:paddingEnd="@dimen/screenMarginDefault"
+        android:paddingBottom="@dimen/paddingSmall">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/regularFont"
+            android:textColor="#101010"
+            android:text="@string/settings"/>
+
+
+    </LinearLayout>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,35 +38,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:gravity="center_vertical"
-                android:paddingStart="@dimen/screenMarginDefault"
-                android:paddingTop="@dimen/paddingSmall"
-                android:paddingEnd="0dp"
-                android:paddingBottom="@dimen/paddingSmall">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif-black"
-                    android:text="@string/settings"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/regularFont" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:padding="@dimen/paddingSmall"
-                    android:src="@drawable/settings"
-                    android:visibility="invisible" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/paddingUltraLarge"
                     android:layout_marginTop="@dimen/paddingExtraLarge"
-                    android:background="@color/colorBackgroundGray"
+                    android:background="@drawable/round_corner_bg_gray"
                     android:gravity="top"
                     android:hint="@string/token"
                     android:padding="@dimen/paddingSmall" />
@@ -127,17 +119,17 @@
                     android:layout_height="@dimen/paddingSuperLarge"
                     android:layout_marginStart="@dimen/paddingExtraLarge"
                     android:layout_marginEnd="@dimen/paddingExtraLarge"
-                    android:background="@drawable/border_all_side_green"
+                    android:background="@drawable/round_corner_bg_blue"
                     android:shadowColor="#A8A8A8"
                     android:shadowDx="0"
                     android:shadowDy="0"
                     android:shadowRadius="5"
                     android:text="@string/show_qr"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorWhite"
                     android:textSize="20sp" />
 
 
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-</LinearLayout>
+</FrameLayout>
